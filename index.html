@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Nemo Bot 1.01</title>
+    <meta charset="utf-8">
+    <link href="./css/index.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="contentContainer">
+        <img id="nemoBotLogo" src ="https://storage.googleapis.com/misc_resources/nemoBotLogoTransparentCropped.png" draggable="false">
+        <div class="convoContainer">
+            <div id="sentMessages"></div>
+            <form onsubmit="event.preventDefault(); sendFormMessage()" autocomplete="off" >
+                <input type="text" id="messageInput">
+                <input type="submit" value="&#10140">
+            </form>
+        </div>
+        <div class="infoBlurb">
+            <b>Nemo Bot Online Demo</b>
+            <p>Send "games" to see all available games.</p>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    var socket = io();
+    socket.on('say', (message) => {
+        displayNemoBotMessage(message);
+    });
+    socket.on('send button', (buttons) => {
+        displayButtons(buttons);
+    });
+
+
+    // get message from the input form, display it and send to server
+    function sendFormMessage() {
+        message = document.getElementById("messageInput").value;
+        document.getElementById("messageInput").value = "";
+
+        displayUserMessage(message);    // display the message in chat
+        emitMessage(message);           // send the message to the server
+    }
+
+    // given a message string, display message div of class userMessage
+    function displayUserMessage(message) {
+        // do not continue if the message is empty or all spaces
+        if (message.replace(/ /g,'') === "") return;
+
+        // create a user message div to display
+        var messageDiv = document.createElement("div"); 
+        messageDiv.setAttribute("class", "userMessage message");
+        messageDiv.innerHTML = message;
+
+        displayMessage(messageDiv);
+    }
+
+    // given a message string (or audio, image, or video),
+    // display the message as if sent by Nemo Bot
+    function displayNemoBotMessage(message) {
+
+        // check here for audio, image, or video
+        if (message === Object(message)) {
+            console.log("yes");
+            let mediaDiv;
+            mediaDiv.setAttribute("class", "nemoBotMedia");
+            if (message.attachment === "image") {
+                mediaDiv = document.createElement("img");
+                mediaDiv.setAttribute("src", message.url);
+            }
+            else if (message.attachment === "audio") {
+                mediaDiv = document.createElement("audio");
+                sourceDiv = document.createElement("source");
+                sourceDiv.setAttribute("type", "audio/mp3");
+                sourceDiv.setAttribute("src", message.url);
+                mediaDiv.appendChild(sourceDiv);
+            }
+            else if (message.attachment === "video") {
+                mediaDiv = document.createElement("video");
+                sourceDiv = document.createElement("source");
+                sourceDiv.setAttribute("type", "video/mp4");
+                sourceDiv.setAttribute("src", message.url);
+                mediaDiv.appendChild(sourceDiv);
+            }
+            displayMessage(mediaDiv);
+        }
+
+        // display normal string message
+        else {
+            let messageDiv = document.createElement("div");
+            messageDiv.setAttribute("class", "nemoBotMessage message");
+            messageDiv.innerHTML = message;
+            displayMessage(messageDiv);
+        }
+    } 
+
+    // given an array of button objects, display a div full of buttons
+    function displayButtons(buttons) {
+        var buttonDiv = document.createElement("div");
+        buttonDiv.setAttribute("class", "buttonGrid");
+
+        for (let i = 0; i < buttons.length; i++) {
+            let button = buttons[i];
+
+            var newButton = document.createElement("button"); 
+            newButton.setAttribute("class", "nemoBotButton");
+
+            if (typeof(button) === 'object') {
+                newButton.setAttribute("id", button.payload);
+                newButton.innerHTML = button.title;
+            }
+            else {
+                newButton.innerHTML = button;
+            }
+
+            buttonDiv.appendChild(newButton);
+        }
+        displayMessage(buttonDiv);
+    }
+
+    // given a div, put it in the chat log
+    function displayMessage(messageDiv) {
+        // append message
+        var sentMessages = document.getElementById("sentMessages");
+        sentMessages.appendChild(messageDiv);
+
+        // keep scroll at bottom
+        var myTimer = setInterval(scroller, 15);
+        
+        function scroller() {
+            document.getElementById("sentMessages").scrollBy(0, 1);
+            if (sentMessages.scrollTop === sentMessages.scrollHeight - sentMessages.clientHeight) {
+                clearInterval(myTimer);
+            }
+        }
+    }
+
+    // send a user message to the server
+    function emitMessage(message) {    
+        socket.emit('user message', message);
+    }
+
+    // activate a button on click
+    document.addEventListener('click',function(e){
+        if (e.target && e.target.classList.contains("nemoBotButton")){
+            displayUserMessage(e.target.innerHTML);
+            emitMessage(e.target.id);
+        }
+        return;
+    });
+
+    </script>
+  </body>
+</html>

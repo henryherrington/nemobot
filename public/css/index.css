@@ -1,0 +1,136 @@
+body {
+    background-color: #b3e9ff;
+    margin: 0;
+    padding: 0;
+}
+
+/* page font settings */
+body, input {
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+#nemoBotLogo {
+    height: 130px;
+    margin: 20px 0 10px 0;
+}
+
+.contentContainer {
+    text-align: center;
+    margin: auto;
+    min-width: 550px;
+}
+
+.convoContainer {
+    width: 300px;
+    margin: auto;
+    padding: 20px 0 5px 0;
+}
+
+#sentMessages {
+    background-color: white;
+    border-radius: 20px;
+    height: 300px;
+    overflow: scroll;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+    padding: 0px 15px;
+}
+
+.infoBlurb {
+    border: 3px solid #bbb;
+    font-size: 15px;
+    line-height: 18px;
+    width: 300px;
+    margin: auto;
+    background-color: #ddd;
+    padding: 5px 0;
+}
+
+p {
+    margin: 3px;
+}
+
+#messageInput {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: none;
+    text-align: left;
+    width: 180px;
+    padding: 3px 8px;
+    margin: 10px 0;
+    height: 18px;
+    vertical-align: middle;
+}
+
+form {
+    font-size: 0;
+}
+
+input:focus, input[type=submit], input[type=submit]:focus{
+    outline: none;
+    border: none;
+}
+
+input[type=submit] {
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 24px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.message {
+    clear: both;
+    display: inline-block;
+    word-wrap: break-word;
+    max-width: 65%;
+}
+
+.message, .nemoBotButton {
+    margin: 3px 0;
+    padding: 4px 10px 4px 10px;
+    font-size: 16px;
+    border: none;
+    line-height: 20px;
+}
+
+.userMessage {
+    float: right;
+    text-align: right;
+    
+    border-radius: 10px 10px 0 10px;
+    background-color: #147efb;
+    color: white;
+/*    white-space: pre;*/
+}
+
+.nemoBotMessage {
+    float: left;
+    text-align: left;
+    
+    border-radius: 10px 10px 10px 0;
+    background-color: #ddd;
+    color: black;
+}
+
+.nemoBotButton {
+    display: inline-block;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    margin: 1px 1px;
+    box-shadow: 1px 1px 2px #ddd;
+}
+
+.buttonGrid {
+    clear: both;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.nemoBotMedia {
+    width: 250px;
+}
