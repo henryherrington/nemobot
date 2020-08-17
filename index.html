@@ -1,26 +1,40 @@
 <!doctype html>
 <html>
   <head>
-    <title>Nemo Bot 1.01</title>
+    <title>Nemo Bot 1.2</title>
     <meta charset="utf-8">
     <link href="./css/index.css" type="text/css" rel="stylesheet">
-  </head>
-  <body>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+    <header>
+        
+    </header>
     <div class="contentContainer">
-        <img id="nemoBotLogo" src ="https://storage.googleapis.com/misc_resources/nemoBotLogoTransparentCropped.png" draggable="false">
+        <table class="headingTable">
+            <tr>
+                <td><img id="nemoBotLogo" src ="https://storage.googleapis.com/misc_resources/nemoBotLogoTransparentCropped.png" draggable="false"></td>
+                <td><h1>Nemo Bot</h1></td>
+            </tr>
+        </table>
         <div class="convoContainer">
+            <div class="iconBar">
+                <!-- <a><img class="polymathLogo" src="https://storage.googleapis.com/misc_resources/polymathlogo5.png"></a></br> -->
+                <a class="fa fa-facebook-f" target="_blank" href="https://www.facebook.com/Nemo-Bot-454163798317367"></a><br>
+                <a class="fa fa-linkedin" target="_blank" href="https://www.linkedin.com/company/nautilus-ai/"></a><br>
+                <div class="fa fa-question-circle" onclick="aboutButton()"></div>
+            </div>
+
             <div id="sentMessages"></div>
-            <form onsubmit="event.preventDefault(); sendFormMessage()" autocomplete="off" >
+            <form id="inputForm" onsubmit="event.preventDefault(); sendFormMessage()" autocomplete="off" >
                 <input type="text" id="messageInput">
-                <input type="submit" value="&#10140">
+                <input type="submit" id="submitButton" value="&#10140">
             </form>
         </div>
-        <div class="infoBlurb">
-            <b>Nemo Bot Online Demo</b>
-            <p>Send "games" to see all available games.</p>
-        </div>
     </div>
+    <footer>
+        &#169; 2020 Nautilus Software Technologies Limited<br>
+        All rights reserved.
+    </footer>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
@@ -32,6 +46,11 @@
         displayButtons(buttons);
     });
 
+    function aboutButton() {
+        let aboutPrompt = "What is NemoBot?"
+        displayUserMessage(aboutPrompt);    // display the message in chat
+        emitMessage(aboutPrompt); 
+    }
 
     // get message from the input form, display it and send to server
     function sendFormMessage() {
@@ -61,7 +80,6 @@
 
         // check here for audio, image, or video
         if (message === Object(message)) {
-            console.log("yes");
             let mediaDiv;
             mediaDiv.setAttribute("class", "nemoBotMedia");
             if (message.attachment === "image") {
@@ -124,15 +142,9 @@
         var sentMessages = document.getElementById("sentMessages");
         sentMessages.appendChild(messageDiv);
 
-        // keep scroll at bottom
-        var myTimer = setInterval(scroller, 15);
-        
-        function scroller() {
-            document.getElementById("sentMessages").scrollBy(0, 1);
-            if (sentMessages.scrollTop === sentMessages.scrollHeight - sentMessages.clientHeight) {
-                clearInterval(myTimer);
-            }
-        }
+       
+        sentMessages.scrollTop = sentMessages.scrollHeight - sentMessages.clientHeight;
+  
     }
 
     // send a user message to the server
