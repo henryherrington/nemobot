@@ -1,7 +1,12 @@
 body {
-    background-color: #b3e9ff;
+    background: url("https://nemo.algebragame.app/img/bg-pattern.png"), linear-gradient(to left, #2165ae, #0091C9);
+    /* background-color: #9cc7d6; */
     margin: 0;
     padding: 0;
+    /* background-image: url(https://nautilustech.ai/assets/css/images/pattern-size1.svg);
+    background-position: top left, center center;
+    background-attachment: fixed, fixed;
+    background-size: auto, cover; */
 }
 
 /* page font settings */
@@ -10,41 +15,72 @@ body, input {
     font-family: sans-serif;
 }
 
+tr, td {
+    height: 60px;
+    padding: 0 5px;
+    margin: 0;
+}
+
+.headingTable {
+    position: relative;
+    margin: auto;
+    /* background-color: green; */
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+
+#inputForm {
+    /* background-color: blue; */
+    height: 45px;
+    padding-top: 10px;
+}
+
 #nemoBotLogo {
-    height: 130px;
-    margin: 20px 0 10px 0;
+    height: 100%;
+}
+
+h1 {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 6%;
+    font-size: 50px;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
 }
 
 .contentContainer {
     text-align: center;
     margin: auto;
-    min-width: 550px;
+    min-width: max(100vw, 400px);
+    min-height: 290px;
+    height: calc(100vh - 60px);
+    /* background-color: red; */
 }
 
 .convoContainer {
-    width: 300px;
+    width: max(60vw, 300px);
     margin: auto;
-    padding: 20px 0 5px 0;
+    position: relative;
 }
 
 #sentMessages {
     background-color: white;
-    border-radius: 20px;
-    height: 300px;
+    border-radius: 3px;
+    height: calc(100vh - 270px);
+    min-height: 80px;
     overflow: scroll;
-    border-top: 5px solid white;
-    border-bottom: 5px solid white;
-    padding: 0px 15px;
+    padding: 15px 15px;
+    border: 2px solid lightblue;
+    scroll-behavior: smooth;
+    transition: 1s;
 }
 
-.infoBlurb {
-    border: 3px solid #bbb;
-    font-size: 15px;
-    line-height: 18px;
-    width: 300px;
-    margin: auto;
-    background-color: #ddd;
-    padding: 5px 0;
+#messageInput {
+    border-top: 2px solid lightblue;
+    border-left: 2px solid lightblue;
+    border-bottom: 2px solid lightblue;
+    border-right: none;
 }
 
 p {
@@ -52,13 +88,11 @@ p {
 }
 
 #messageInput {
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
     text-align: left;
-    width: 180px;
+    width: calc(270px - 20px);
     padding: 3px 8px;
-    margin: 10px 0;
     height: 18px;
     vertical-align: middle;
 }
@@ -67,30 +101,36 @@ form {
     font-size: 0;
 }
 
-input:focus, input[type=submit], input[type=submit]:focus{
+input:focus, #submitButton, #submitButton:focus{
     outline: none;
-    border: none;
 }
 
-input[type=submit] {
+#submitButton {
     background-color: white;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    height: 24px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    height: 28px;
     margin: 0;
     vertical-align: middle;
+    width: 30px;
+
+    border-top: 2px solid lightblue;
+    border-left: none;
+    border-bottom: 2px solid lightblue;
+    border-right: 2px solid lightblue;
 }
 
 .message {
     clear: both;
     display: inline-block;
     word-wrap: break-word;
-    max-width: 65%;
+    max-width: 55%;
+    text-align: left;
+    padding: 6px 12px 3px 12px;
 }
 
 .message, .nemoBotButton {
-    margin: 3px 0;
-    padding: 4px 10px 4px 10px;
+    margin: 4px 0;
     font-size: 16px;
     border: none;
     line-height: 20px;
@@ -98,9 +138,8 @@ input[type=submit] {
 
 .userMessage {
     float: right;
-    text-align: right;
     
-    border-radius: 10px 10px 0 10px;
+    border-radius: 20px 20px 0 20px;
     background-color: #147efb;
     color: white;
 /*    white-space: pre;*/
@@ -108,9 +147,8 @@ input[type=submit] {
 
 .nemoBotMessage {
     float: left;
-    text-align: left;
     
-    border-radius: 10px 10px 10px 0;
+    border-radius: 20px 20px 20px 0;
     background-color: #ddd;
     color: black;
 }
@@ -122,15 +160,67 @@ input[type=submit] {
     border: 1px solid #ddd;
     margin: 1px 1px;
     box-shadow: 1px 1px 2px #ddd;
+
+    padding: 4px 10px;
 }
 
 .buttonGrid {
     clear: both;
     text-align: center;
-    width: 100%;
-    padding: 10px 0;
+    width: 75%;
+    margin: auto;
+    padding: 10px 30px;
 }
 
 .nemoBotMedia {
     width: 250px;
+}
+
+.iconBar {
+    position: absolute;
+    right: -40px;
+    top: 0;
+    font-size: 30px;
+    line-height: 40px;
+    color: white;
+}
+
+.fa-facebook-f, .fa-linkedin, .fa-question-circle {
+    transition: 0.3s;
+    width: 35px;
+    height: 35px;
+    color: white;
+    text-decoration: none;
+}
+
+.fa-facebook-f:hover {
+    color: #3b5998;
+}
+
+.fa-linkedin:hover {
+    color: #0077B5;
+}
+
+.fa-question-circle:hover {
+    color: #d69160;
+}
+
+footer {
+    /* background-color:purple; */
+    color: white;
+    position: relative;
+    width: 100%;
+    min-width: 400px;
+    text-align: center;
+    height: 30px;
+    padding: 15px 0;
+
+    font-size: 12px;
+}
+
+header {
+    position: fixed;
+    color: white;
+    right: 0;
+    top: 0;
 }
