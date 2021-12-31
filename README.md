@@ -1,5 +1,5 @@
-<p align= "center">
-  # Nemobot
+<h1 align="center">Nemobot</h1> 
+<p align="center">
   <img src="https://raw.githubusercontent.com/henryherrington/nemo-bot/master/images/app_screenshot.png" height="75%" width="75%" margin="auto">
 </p>
 
