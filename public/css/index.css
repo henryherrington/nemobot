@@ -1,12 +1,7 @@
 body {
     background: url("https://nemo.algebragame.app/img/bg-pattern.png"), linear-gradient(to left, #2165ae, #0091C9);
-    /* background-color: #9cc7d6; */
     margin: 0;
     padding: 0;
-    /* background-image: url(https://nautilustech.ai/assets/css/images/pattern-size1.svg);
-    background-position: top left, center center;
-    background-attachment: fixed, fixed;
-    background-size: auto, cover; */
 }
 
 /* page font settings */
@@ -24,13 +19,11 @@ tr, td {
 .headingTable {
     position: relative;
     margin: auto;
-    /* background-color: green; */
     padding-bottom: 10px;
     padding-top: 15px;
 }
 
 #inputForm {
-    /* background-color: blue; */
     height: 45px;
     padding-top: 10px;
 }
@@ -55,7 +48,6 @@ h1 {
     min-width: max(100vw, 400px);
     min-height: 290px;
     height: calc(100vh - 60px);
-    /* background-color: red; */
 }
 
 .convoContainer {
@@ -206,7 +198,6 @@ input:focus, #submitButton, #submitButton:focus{
 }
 
 footer {
-    /* background-color:purple; */
     color: white;
     position: relative;
     width: 100%;
@@ -214,7 +205,6 @@ footer {
     text-align: center;
     height: 30px;
     padding: 15px 0;
-
     font-size: 12px;
 }
 
