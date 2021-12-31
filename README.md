@@ -1,6 +1,6 @@
 # Nemobot
 
-![](https://github.com/henryherrington/nemo-bot/blob/master/images/app_screenshot.png | width=100)
+![](https://raw.githubusercontent.com/henryherrington/nemo-bot/master/images/app_screenshot.png | width=100)
 
 ## About
 This is the first online version of the chatbot Nemobot that I created as part of a summer internship with [Nautlius Software Technologies](https://nautilustech.ai/) in the summer of 2020. Nemobot is used to teach JavaScript by running two-player JavaScript games that can be coded by students! Currently, these games are hard-coded in the games directory. In addition to running these games, Nemobot can chat conversationally with users. The goal of this project was to improve upon an earlier version of Nemobot that is available through Facebook Messenger and does not support natural language processing.
