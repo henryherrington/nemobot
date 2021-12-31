@@ -1,5 +1,5 @@
 # Nemobot
-
+<img src="https://raw.githubusercontent.com/henryherrington/nemo-bot/master/images/app_screenshot.png">
 ![Nemobot Screenshot](https://raw.githubusercontent.com/henryherrington/nemo-bot/master/images/app_screenshot.png){:height="50%" width="50%"}
 
 ## About
