@@ -9,7 +9,7 @@ This is the first online version of the chatbot Nemobot that I created as part o
 This version of Nemobot was developed with an Express server on a Node.js backend, HTML, CSS, and is integrated with Google Dialogflow to allow for natural language processing.
 
 ## Demo
-A working demo is available at: http://34.92.103.169/.
+A working (slightly outdated) demo is available at: http://34.92.103.169/.
 This demo is hosted by Nautilus Software Technologies.
 
 ## How to set up
