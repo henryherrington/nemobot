@@ -15,7 +15,7 @@ This demo is hosted by Nautilus Software Technologies.
 ## How to set up
 1) Clone or download the repository
 2) Install dependencies with `npm install`
-3) Import the Nemobot agent into your Dialogflow console using the provided nemo-bot.zip file.
+3) Import the Nemobot agent into your Dialogflow Essentials console using the provided nemo-bot.zip file.
 4) Set up Google Cloud credentials in an environment variable to support Google Dialogflow and access to your Nemobot agent. Follow the instructions [here](https://cloud.google.com/docs/authentication/getting-started) for more details on setting up GC credentials.
 5) Run the Express server with `node app.js`
 6) Access the running app at http://localhost:3000/
