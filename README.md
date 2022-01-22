@@ -12,7 +12,7 @@ This version of Nemobot was developed with an Express server on a Node.js backen
 A working (slightly outdated) demo is available at: http://34.92.103.169/.
 This demo is hosted by Nautilus Software Technologies.
 
-## How to set up
+## Local Set Up
 1) Clone or download the repository
 2) Install dependencies with `npm install`
 3) Import the Nemobot agent into your Dialogflow Essentials console using the provided nemo-bot.zip file.
